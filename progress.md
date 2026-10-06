@@ -13,8 +13,8 @@ Where the SDK work stands against `specs/marketsdk-sdks/requirements.md` in `mar
 | 5 | Smoke tests against a local backend in test mode, all six languages | Done |
 | 6 | Unknown field and unknown enum value accepted, proven with a mock response | Done, inside the smoke tests |
 | 7 | `RELEASING.md` in each repository with the registry steps | Done |
-| 8 | Documentation on marketsdk.com: the SDKs guide and the versioning section | Done, pending `npm run ci` |
-| 9 | First publish of every package at 1.0.0 | Not started. Ausaf publishes. |
+| 8 | Documentation on marketsdk.com: the SDKs guide and the versioning section | Done |
+| 9 | First publish of every package at 1.0.0 | Done. Every package is on its registry and every repository is tagged `v1.0.0`. |
 
 ## Done when, from the requirements
 
@@ -26,6 +26,6 @@ Where the SDK work stands against `specs/marketsdk-sdks/requirements.md` in `mar
 | Each parses a response with an unknown field and an unknown enum value | Done, all six, against a mock serving a real seller with an unknown status and two unknown fields. |
 | Public method names match the description's `operationId` list, one to one | Done, 85 of 85 in every language. |
 | MIT license in `LICENSE` and in package metadata, naming Focussoft HQ LLC | Done. |
-| Published at 1.0.0 and installable on a clean machine | Not started. |
-| `marketsdk-web` passes `npm run ci` with the new guide and versioning section | Lint and the production build pass; the full gate is being run. |
+| Published at 1.0.0 and installable on a clean machine | Done. |
+| `marketsdk-web` passes `npm run ci` with the new guide and versioning section | Done. |
 | Nothing in any SDK repository edited by hand | Holds. The one scripted correction is decision D12. |
