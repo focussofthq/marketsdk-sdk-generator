@@ -1,0 +1,18 @@
+# Fern reads the description through this overlay. The description itself is never edited.
+#
+# Fern derives each method's name from its operationId, except that an operationId beginning with
+# the resource's own name loses that prefix: searchListings under the Search resource would become
+# client.search.listings(). The SDK rule is that operationId is the method name, in every language,
+# so the one operation this affects is pinned here. Add an action whenever a new operationId starts
+# with its tag.
+overlay: 1.0.0
+info:
+  title: MarketSDK method names
+  version: 1.0.0
+actions:
+  - target: $.paths['/v1/search/listings'].get
+    update:
+      x-fern-sdk-group-name: search
+      x-fern-sdk-method-name: searchListings
+      # Without this, naming the method renames its request type to SearchListingsSearchRequest.
+      x-fern-request-name: SearchListingsRequest

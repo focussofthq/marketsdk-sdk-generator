@@ -1,0 +1,15 @@
+plugins {
+    id 'application'
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation 'com.marketsdk:marketsdk-java:1.0.0'
+}
+application {
+    mainClass = 'Smoke'
+}
+run {
+    standardOutput = System.out
+}

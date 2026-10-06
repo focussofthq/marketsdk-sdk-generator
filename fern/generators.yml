@@ -1,0 +1,143 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/generators-yml.json
+#
+# One group per SDK. Each writes into its repository, checked out beside this one.
+# Run through scripts/regenerate.mjs, never by hand, so the description and the
+# GENERATED file stay in step. Versions are pinned on purpose; see README.md.
+
+api:
+  specs:
+    - openapi: openapi/marketsdk-v1.json
+      overlays: overlays.yml
+
+default-group: typescript
+
+groups:
+  typescript:
+    generators:
+      - name: fern-typescript-sdk
+        version: 3.98.5
+        config:
+          naming:
+            namespace: MarketSDKApi
+            client: MarketSDK
+            error: MarketSDKError
+            timeoutError: MarketSDKTimeoutError
+            environment: MarketSDKEnvironment
+          guardProcessEnvAccess: true
+          packageJson:
+            name: "@marketsdk/js"
+            description: "The MarketSDK client for JavaScript and TypeScript. Node and browsers."
+            license: MIT
+            author: "Focussoft HQ LLC"
+            homepage: "https://marketsdk.com/docs/sdks"
+            repository:
+              type: git
+              url: "https://github.com/focussofthq/marketsdk-typescript"
+            bugs:
+              url: "https://github.com/focussofthq/marketsdk-typescript/issues"
+            keywords:
+              - marketsdk
+              - marketplace
+              - api
+              - sdk
+        output:
+          location: local-file-system
+          path: ../../marketsdk-typescript
+
+  python:
+    generators:
+      - name: fern-python-sdk
+        version: 5.34.3
+        config:
+          package_name: marketsdk
+          client:
+            class_name: MarketSDK
+          pydantic_config:
+            version: v2
+          pyproject_toml: |
+            [tool.poetry.urls]
+            Homepage = "https://marketsdk.com/docs/sdks"
+            Repository = "https://github.com/focussofthq/marketsdk-python"
+            Documentation = "https://marketsdk.com/docs"
+        metadata:
+          package-description: "The MarketSDK client for Python."
+          license: MIT
+          author: "Focussoft HQ LLC"
+          email: "hello@marketsdk.com"
+          reference-url: "https://marketsdk.com/docs/sdks"
+        output:
+          location: local-file-system
+          path: ../../marketsdk-python
+
+  go:
+    generators:
+      - name: fern-go-sdk
+        version: 1.65.3
+        config:
+          packageName: marketsdk
+          module:
+            path: github.com/focussofthq/marketsdk-go
+            version: "1.21"
+          clientName: Client
+          clientConstructorName: NewClient
+        output:
+          location: local-file-system
+          path: ../../marketsdk-go
+
+  java:
+    generators:
+      - name: fern-java-sdk
+        version: 4.24.2
+        config:
+          client-class-name: MarketSDK
+          package-prefix: com.marketsdk
+          package-name: marketsdk-java
+          enable-forward-compatible-enums: true
+          publish-to: central
+        metadata:
+          package-description: "The MarketSDK client for Java."
+          license: MIT
+          author: "Focussoft HQ LLC"
+          email: "hello@marketsdk.com"
+          reference-url: "https://marketsdk.com/docs/sdks"
+        output:
+          location: local-file-system
+          path: ../../marketsdk-java
+
+  csharp:
+    generators:
+      - name: fern-csharp-sdk
+        version: 2.86.2
+        config:
+          namespace: MarketSDK
+          client-class-name: MarketSDKClient
+          package-id: MarketSDK
+          enable-forward-compatible-enums: true
+          package-metadata:
+            description: "The MarketSDK client for .NET."
+            license: MIT
+            authors: "Focussoft HQ LLC"
+            project-url: "https://marketsdk.com/docs/sdks"
+            repository-url: "https://github.com/focussofthq/marketsdk-csharp"
+        output:
+          location: local-file-system
+          path: ../../marketsdk-csharp
+
+  php:
+    generators:
+      - name: fern-php-sdk
+        version: 2.24.2
+        config:
+          namespace: MarketSDK
+          clientName: MarketSDKClient
+          packageName: marketsdk/php
+          composerJson:
+            description: "The MarketSDK client for PHP."
+            license: MIT
+            homepage: "https://marketsdk.com/docs/sdks"
+            authors:
+              - name: "Focussoft HQ LLC"
+                email: "hello@marketsdk.com"
+        output:
+          location: local-file-system
+          path: ../../marketsdk-php

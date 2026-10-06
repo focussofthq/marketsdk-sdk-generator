@@ -1,0 +1,12 @@
+{
+  "name": "marketsdk-sdk-generator",
+  "private": true,
+  "description": "Regenerates the MarketSDK client libraries from the API description.",
+  "license": "MIT",
+  "scripts": {
+    "fern": "fern"
+  },
+  "devDependencies": {
+    "fern-api": "5.146.2"
+  }
+}

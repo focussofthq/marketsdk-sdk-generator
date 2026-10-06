@@ -1,0 +1,6 @@
+{
+  "name": "marketsdk-smoke-typescript",
+  "private": true,
+  "type": "module",
+  "description": "Smoke test for @marketsdk/js against a local backend. Installed from a tarball by smoke/run.mjs."
+}
